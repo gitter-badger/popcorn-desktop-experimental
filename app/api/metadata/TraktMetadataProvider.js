@@ -46,6 +46,7 @@ export default class TraktMetadataAdapter {
     }
 
     return fetch(
+      `http://api.themoviedb.org/3/search/harry?api_key=c8cd3c25956bd78c687685e6dcb82a64`
       `http://www.omdbapi.com/?s=${encodeURIComponent(query)}&type=${type}&page=${page}`
     )
       .then(response => response.json())
@@ -111,14 +112,14 @@ function formatMovieSearch(movie) {
     trailer: 'n/a',  // omdbapi does not support
     images: {
       fanart: {
-        full: movie.Poster,
-        medium: movie.Poster,
-        thumb: movie.Poster
+        full: `https://image.tmdb.org/t/p/w185/${movie.poster_path}`,
+        medium: `https://image.tmdb.org/t/p/w185/${movie.poster_path}`,
+        thumb: `https://image.tmdb.org/t/p/w185/${movie.poster_path}`
       },
       poster: {
-        full: movie.Poster,
-        medium: movie.Poster,
-        thumb: movie.Poster
+        full: `https://image.tmdb.org/t/p/w185/${movie.poster_path}`,
+        medium: `https://image.tmdb.org/t/p/w185/${movie.poster_path}`,
+        thumb: `https://image.tmdb.org/t/p/w185/${movie.poster_path}`
       }
     }
   };
